@@ -2,21 +2,17 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-    		<title>Add Artwork</title>
+    		<title>Search Artwork</title>
   	</head>
   	<body>
-		<h1> New Artwork </h1>
-		<form>
+		<h1> Search Artwork </h1>
+		<form action="artworkResults.html" method="get">
 			<label>Title:</label>
 			<input type = "text" name = "Title" required><br><br>
 			<label>Year created:</label>
 			<input type = "number" name = "Year" required><br><br>
-			<label>Medium:</label>
-			<input type = "text" name = "Medium" required><br><br>
-			<label>Description:</label>
-			<textarea name = "text" rows="4" cols= "40"></textarea><br><br>
-			<label>ArtistID:</label>
-			<input type = "number" name = "ArtistID" required><br><br>
+			<label>Artist Name:</label>
+			<input type = "text" name = "Artist" required><br><br>
 		
 			<button type="Submit">Submit</button>
 		</form>
