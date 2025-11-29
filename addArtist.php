@@ -2,8 +2,8 @@
 
 $host = "localhost";
 $user = "root";
-$pass = "";
-$dbname = "";
+$pass = "databasedarlings";
+$dbname = "art_museum";
 
 
 $conn = new mysqli($host, $user, $pass, $dbname);
@@ -12,7 +12,7 @@ if ($conn->connect_error){
   die("Connection fail:". $conn->connect_error);
 }
 
-if ($_SERVER["REQUEST_METHOD]=="POST")
+if ($_SERVER["REQUEST_METHOD"]=="POST")
 {
   $fname=$_POST["afname"];
   $minit=$_POST["aminitial"];
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD]=="POST")
   $country=$_POST["country"];
   $bio=$_POST["bio"];
 
-  $sql = "INSERT INTO artists (first_name, middle_initial, last_name, dob, country, bio)
+  $sql = "INSERT INTO artist (AFName, AMInitial, ALName, DOB, Country, Bio)
           VALUES (?,?,?,?,?,?)";
   $stmt = $conn->prepare($sql);
 
