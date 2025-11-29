@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD]=="POST")
   $country=$_POST["country"];
   $bio=$_POST["bio"];
 
-  $sql = "INSERT INTO artists (first_name, middle_initial, last_name, dob, country, bio)
+  $sql = "INSERT INTO artists (first_name, middle_initial, last_name, $formattedDOB, country, bio)
           VALUES (?,?,?,?,?,?)";
   $stmt = $conn->prepare($sql);
 
