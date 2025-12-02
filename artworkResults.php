@@ -17,7 +17,7 @@ $Title =$_GET['Title'];
 
 $sql = "SELECT ArtworkID, Title, YearCreated, ArtMedium, Details
         FROM artwork
-	WHERE Title LIKE ?";
+		WHERE Title LIKE ?";
 
 $stmt = $conn->prepare($sql);
 
