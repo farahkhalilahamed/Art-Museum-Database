@@ -16,7 +16,7 @@ $lname =$_GET['lname'];
 
 
 $sql = "SELECT ArtistID, AFName, AMInitial, ALName, DOB, Country, Bio
-        FROM artists
+        FROM artist
 	WHERE ALName LIKE ?";
 
 $stmt = $conn->prepare($sql);
