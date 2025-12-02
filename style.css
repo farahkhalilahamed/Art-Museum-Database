@@ -6,7 +6,7 @@ form {
     background: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    font-family: Arial, sans-serif;
+    font-family: Trebuchet MS, sans-serif;
 }
 body {
     background-image: url('back.jpeg');
@@ -14,13 +14,14 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-color: beige;
 }
 h1 {
     color: white;               
     text-align: center;
     margin-top: 20px; 
     font-size: 48px;  
-    font-family: Arial, sans-serif;
+    font-family: Trebuchet MS, Verdana, sans-serif;
     text-shadow: 
         -2px -2px 0 black,
          2px -2px 0 black,
@@ -44,7 +45,7 @@ input[type="number"],
 select,
 textarea {
     width: 100%;
-    padding: 10px 12px;
+    padding: 10px 0px;
     margin-bottom: 18px;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -86,3 +87,37 @@ input[type="submit"]:disabled {
     background: #aaa;
     cursor: not-allowed;
 }
+
+/* Home Nav */
+/* .containers {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.art,
+.exhibitions,
+.donors,
+.staff {
+    font-family: Trebuchet MS, sans-serif;
+}
+
+ul {
+    margin: 20px 0px;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+li {
+    padding: 20px;
+    border-radius: 25px;
+    background-color: crimson;
+    font-family: Trebuchet MS, sans-serif;
+    font-weight: 300px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+} */
