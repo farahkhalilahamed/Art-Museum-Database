@@ -1,0 +1,74 @@
+-- SHOW VARIABLES LIKE 'secure_file_priv';
+SET FOREIGN_KEY_CHECKS = 0;
+
+LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\Artist.csv'
+INTO TABLE artist
+FIELDS TERMINATED BY ','
+OPTIONALLY ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\Artwork.csv'
+INTO TABLE artwork
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\Employee.csv'
+INTO TABLE employee
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\Location.csv'
+INTO TABLE location
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\Exhibition.csv'
+INTO TABLE exhibition
+FIELDS TERMINATED BY ','
+OPTIONALLY ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\Donors.csv'
+INTO TABLE donors
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\ExhibitionStaff.csv'
+INTO TABLE exhibitionstaff
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\Administrator.csv'
+INTO TABLE administrator
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\ExhibitedArtwork.csv'
+INTO TABLE exhibitedartwork
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads\\ExhibitionDonors.csv'
+INTO TABLE exhibitiondonors
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+SET FOREIGN_KEY_CHECKS = 1;

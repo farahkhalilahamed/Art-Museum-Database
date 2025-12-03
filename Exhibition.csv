@@ -1,0 +1,11 @@
+﻿ExhibitionID,LocationID,Title,StartDate,EndDate,Description
+45,1,Nature,20250101,20250131,Artworks displying themes of intellectual thought spirituality and philosophy about humans and nature
+56,2,Historical Perspectives,20250201,20250228,Artworks which sought to memorialize turning points in history.
+12,9,Landscapes,20250301,20250331,Artwork which features different kinds of landscapes.
+39,6,Animals in Art,20250401,20250430,Pieces which depict animals as the subject of the work.
+78,3,Everyday Moments,20250501,20250531,Encourages viewers to appreciate little moments in life by highlight artwork that does the same.
+63,4,The Human as Art,20250601,20250630,Explores the human as a form of art.
+99,5,The Cosmos,20250701,20250731,Explores the relationship between humans and the cosmos.
+47,7,Portraiture,20250801,20250831,Highlights different kinds of potraiture
+86,8,Abstract Art,20250901,20250930,Focuses on artists that specialize in abstract art.
+53,10,Student Submissions,20251001,20251031,Features artwork created by UTD students
