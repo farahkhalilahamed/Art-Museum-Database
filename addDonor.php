@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $amount = $_POST["amount"];
     $message = $_POST["text"];
 
-    $sql = "INSERT INTO donor (DFName, DMInitial, DLName, Amount, Message)
+    $sql = "INSERT INTO donors (DFName, DMInitial, DLName, Amount, Message)
             VALUES (?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
