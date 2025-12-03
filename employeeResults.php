@@ -13,11 +13,10 @@ if ($conn->connect_error){
 
 $fname = $_GET["fname"];
 $lname = $_GET["lname"];
-$position = $_GET["position"];
 
 $sql = "SELECT EFName, EMInitial, ELName, Phone, Email
         FROM employee
-        WHERE EFName LIKE ? AND ELName LIKE ? AND Position LIKE ?";
+        WHERE EFName LIKE ? AND ELName LIKE ?";
 
 $stmt = $conn->prepare($sql);
 
@@ -27,7 +26,6 @@ if (!$stmt) {
 
 $searchF = "%{$fname}%";
 $searchL = "%{$lname}%";
-$searchP = "%{$position}%";
 
 $stmt->bind_param("sss", $searchF, $searchL, $searchP);
 
@@ -40,7 +38,6 @@ if ($result->num_rows > 0) {
     echo '<table border="1.5" cellpadding="10">
             <tr>
                 <th>Name</th>
-                <th>Position</th>
                 <th>Phone</th>
                 <th>Email</th>
             </tr>';
@@ -49,7 +46,6 @@ if ($result->num_rows > 0) {
         $fullName = $row["EFName"] . " " . $row["EMInitial"] . " " . $row["ELName"];
         echo "<tr>
                 <td>{$fullName}</td>
-                <td>{$row['Position']}</td>
                 <td>{$row['Phone']}</td>
                 <td>{$row['Email']}</td>
             </tr>";
