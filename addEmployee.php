@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = $_POST["phone"];
     $position = $_POST["position"];
 
-    $sql = "INSERT INTO employee (EFName, EMInitial, ELName, Phone, Email, Position)
+    $sql = "INSERT INTO employee (EFName, EMInitial, ELName, Phone, Email, Role)
             VALUES (?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
