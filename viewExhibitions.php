@@ -26,28 +26,19 @@ $result = $conn->query($sql);
 <h1>Employees</h1>
 
 <?php
-if ($result->num_rows > 0) {
-    echo '<table border="1.5" cellpadding="10">
-            <tr>
-                <th>Title</th>
-                <th>Starts</th>
-                <th>Ends</th>
-                <th>Description</th>
-            </tr>';
+if ($result && $result->num_rows > 0) {
 
     while ($row = $result->fetch_assoc()) {
-
-        echo "<tr>
-                <td>{$row['Title']}</td>
-                <td>{$row['StartDate']}</td>
-                <td>{$row['EndDate']}</td>
-                <td>{$row['Description']}</td>
-              </tr>";
+        echo "<tr>";
+        echo "<td>" . htmlspecialchars($row['title']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['location']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['dates']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['artworks_displayed']) . "</td>";
+        echo "</tr>";
     }
 
-    echo "</table>";
 } else {
-    echo "<p>No exhibitions in the database.</p>";
+    echo "<tr><td colspan='4'>No exhibitions found.</td></tr>";
 }
 ?>
 
