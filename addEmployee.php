@@ -18,7 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lname = $_POST["lname"];
     $email = $_POST["email"];
     $phone = $_POST["phone"];
-    $position = $_POST["position"];
 
     $sql = "INSERT INTO employee (EFName, EMInitial, ELName, Phone, Email)
             VALUES (?, ?, ?, ?, ?)";
