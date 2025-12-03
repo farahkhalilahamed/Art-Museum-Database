@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $position = $_POST["position"];
 
     $sql = "INSERT INTO employee (EFName, EMInitial, ELName, Phone, Email)
-            VALUES (?, ?, ?, ?, ?, ?)";
+            VALUES (?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
 
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Prepare failed: " . $conn->error);
     }
 
-    $stmt->bind_param("ssssss", $fname, $minit, $lname, $phone, $email, $position);
+    $stmt->bind_param("ssssss", $fname, $minit, $lname, $phone, $email);
 
     if ($stmt->execute()) {
         echo "<h2>Employee added successfully!</h2>";
