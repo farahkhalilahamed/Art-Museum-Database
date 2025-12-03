@@ -14,7 +14,7 @@ if ($conn->connect_error){
 $lname = $_GET["lname"];
 
 $sql = "SELECT DonorID, DFName, DMInitial, DLName, Amount, Message
-        FROM donor
+        FROM donors
         WHERE DLName LIKE ?";
 
 $stmt = $conn->prepare($sql);
