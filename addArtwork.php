@@ -20,10 +20,6 @@ if ($_SERVER["REQUEST_METHOD"]=="POST")
   $text=$_POST["text"];
   $ArtistID = $_POST["ArtistID"];
 
-	
-  $country=$_POST["country"];
-  $bio=$_POST["bio"];
-
   $sql = "INSERT INTO artwork (Title, YearCreated, ArtMedium, Details, ArtistID)
           VALUES (?,?,?,?,?)";
   $stmt = $conn->prepare($sql);

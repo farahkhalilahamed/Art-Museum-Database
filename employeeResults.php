@@ -27,7 +27,7 @@ if (!$stmt) {
 $searchF = "%{$fname}%";
 $searchL = "%{$lname}%";
 
-$stmt->bind_param("sss", $searchF, $searchL, $searchP);
+$stmt->bind_param("ss", $searchF, $searchL);
 
 $stmt->execute();
 $result = $stmt->get_result();

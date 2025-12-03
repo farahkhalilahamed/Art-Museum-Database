@@ -3,78 +3,80 @@ CREATE DATABASE Art_Museum;
 USE Art_Museum;
 
 CREATE TABLE Artist
-	(ArtistID	INT	Default 0,
+	(
+    -- ArtistID	INT	Default 0,
+    ArtistID INT NOT NULL auto_increment PRIMARY KEY,
     AFName VARCHAR(100),
     AMInitial	CHAR(1),
     ALName VARCHAR(100),
     DOB DATE NOT NULL,
     Country VARCHAR(100) NOT NULL,
-    Bio VARCHAR(300),
-    CONSTRAINT ArtistPK
-		PRIMARY KEY (ArtistID)
+    Bio VARCHAR(300)
+    -- CONSTRAINT ArtistPK
+	-- PRIMARY KEY (ArtistID)
 );
 
 CREATE TABLE Artwork (
-	ArtworkID	INT	NOT NULL,
+	ArtworkID 	INT	NOT NULL auto_increment PRIMARY KEY,
     Title VARCHAR(200) Default 'Untitled',
     YearCreated INT NOT NULL,
-    Art_Medium VARCHAR(100) NOT NULL,
+    ArtMedium VARCHAR(100) NOT NULL,
     Details VARCHAR(300),
     ArtistID INT NOT NULL,
-    CONSTRAINT ArtworkPK
-		PRIMARY KEY (ArtworkID),
-	CONSTRAINT ArtworkFK
+    -- CONSTRAINT ArtworkPK
+	-- PRIMARY KEY (ArtworkID),
+	 CONSTRAINT ArtworkFK
 		FOREIGN KEY (ArtistID) REFERENCES Artist(ArtistID)
         ON DELETE RESTRICT
 );
 
 CREATE TABLE Employee (
-	EmployeeID INT NOT NULL,
+	EmployeeID INT NOT NULL auto_increment PRIMARY KEY,
     EFName VARCHAR(10) NOT NULL,
     EMInitial CHAR(1),
     ELName VARCHAR(20) NOT NULL,
     Phone BIGINT NOT NULL,
-    Email VARCHAR(50) NOT NULL,
-    CONSTRAINT EmployeePK
-		PRIMARY KEY (EmployeeID)
+    Email VARCHAR(50) NOT NULL
+    -- CONSTRAINT EmployeePK
+	-- 	PRIMARY KEY (EmployeeID)
 );
 
 CREATE TABLE Donors (
-	DonorID INT NOT NULL,
+	DonorID INT NOT NULL auto_increment PRIMARY KEY,
     DFName VARCHAR(10) NOT NULL,
     DMInitial CHAR(1),
     DLName VARCHAR(20) NOT NULL,
     Amount INT Default 0,
-    Message VARCHAR(300) NOT NULL,
-    CONSTRAINT DonorsPK
-		PRIMARY KEY (DonorID)
+    Message VARCHAR(300) NOT NULL
+    -- CONSTRAINT DonorsPK
+	-- PRIMARY KEY (DonorID)
 );
 
 CREATE TABLE Location (
-    LocationID INT NOT NULL,
+    LocationID INT NOT NULL auto_increment PRIMARY KEY,
     Gallery VARCHAR(100),
-    Floor INT,
-    CONSTRAINT LocationPK PRIMARY KEY (LocationID)
+    Floor INT
+    -- CONSTRAINT LocationPK PRIMARY KEY (LocationID)
 );
 
 CREATE TABLE Exhibition (
-	ExhibitionID INT NOT NULL,
+	ExhibitionID INT NOT NULL auto_increment PRIMARY KEY,
     LocationID INT NOT NULL,
     Title VARCHAR(100) NOT NULL,
     StartDate DATE NOT NULL,
     EndDate DATE,
     Description VARCHAR(300),
-    CONSTRAINT ExhibitionPK
-		PRIMARY KEY (ExhibitionID),
+    -- CONSTRAINT ExhibitionPK
+	-- PRIMARY KEY (ExhibitionID),
 	CONSTRAINT ExhibitionFK
 		FOREIGN KEY (LocationID) REFERENCES Location(LocationID)
         ON DELETE CASCADE
 );
 
 CREATE TABLE ExhibitionStaff (
-    EmployeeID INT NOT NULL,
+    EmployeeID INT NOT NULL auto_increment PRIMARY KEY,
     ExhibitionID INT NOT NULL,
-    CONSTRAINT ExhibitionStaffPK PRIMARY KEY (EmployeeID, ExhibitionID),
+    -- CONSTRAINT ExhibitionStaffPK PRIMARY KEY (EmployeeID, ExhibitionID),
     CONSTRAINT ExhibitionStaffEmployeeFK FOREIGN KEY (EmployeeID)
         REFERENCES Employee(EmployeeID)
         ON DELETE CASCADE,
@@ -84,10 +86,10 @@ CREATE TABLE ExhibitionStaff (
 );
 
 CREATE TABLE Administrator (
-    EmployeeID INT NOT NULL,
+    EmployeeID INT NOT NULL auto_increment PRIMARY KEY,
     ExhibitionID INT NOT NULL,
     Role VARCHAR(20) NOT NULL,
-    CONSTRAINT AdministratorPK PRIMARY KEY (EmployeeID, ExhibitionID),
+    -- CONSTRAINT AdministratorPK PRIMARY KEY (EmployeeID, ExhibitionID),
     CONSTRAINT AdministratorEmployeeFK FOREIGN KEY (EmployeeID)
         REFERENCES Employee(EmployeeID)
         ON DELETE CASCADE,
@@ -98,10 +100,10 @@ CREATE TABLE Administrator (
 
 
 CREATE TABLE ExhibitedArtwork (
-    ExhibitionID INT NOT NULL,
+    ExhibitionID INT NOT NULL auto_increment PRIMARY KEY,
     ArtworkID INT NOT NULL,
     ArtistID INT NOT NULL,
-    CONSTRAINT ExhibitedArtworkPK PRIMARY KEY (ExhibitionID, ArtworkID, ArtistID),
+    -- CONSTRAINT ExhibitedArtworkPK PRIMARY KEY (ExhibitionID, ArtworkID, ArtistID),
     CONSTRAINT ExhibitedArtworkExhibitionFK FOREIGN KEY (ExhibitionID)
         REFERENCES Exhibition(ExhibitionID)
         ON DELETE CASCADE,
@@ -114,9 +116,9 @@ CREATE TABLE ExhibitedArtwork (
 );
 
 CREATE TABLE ExhibitionDonors (
-    ExhibitionID INT NOT NULL,
+    ExhibitionID INT NOT NULL auto_increment PRIMARY KEY,
     DonorID INT NOT NULL,
-    CONSTRAINT ExhibitionDonorsPK PRIMARY KEY (ExhibitionID, DonorID),
+    -- CONSTRAINT ExhibitionDonorsPK PRIMARY KEY (ExhibitionID, DonorID),
     CONSTRAINT ExhibitionDonorsExhibitionFK FOREIGN KEY (ExhibitionID)
         REFERENCES Exhibition(ExhibitionID)
         ON DELETE CASCADE,
