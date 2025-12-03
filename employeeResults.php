@@ -15,7 +15,7 @@ $fname = $_GET["fname"];
 $lname = $_GET["lname"];
 $position = $_GET["position"];
 
-$sql = "SELECT EFName, EMInitial, ELName, Phone, Email, Position
+$sql = "SELECT EFName, EMInitial, ELName, Phone, Email
         FROM employee
         WHERE EFName LIKE ? AND ELName LIKE ? AND Position LIKE ?";
 
