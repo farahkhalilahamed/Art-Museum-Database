@@ -35,7 +35,7 @@ if ($stmt->execute()) {
     $stmt->close();
 
     $exhibitionID = intval($_POST["ExhibitionID"]);
-    $role = $_POST["Role"]
+    $role = $_POST["Role"];
     $sql2 = "INSERT INTO Administrator (EmployeeID, ExhibitionID, Role)
             VALUES (?,?,?)";
 
