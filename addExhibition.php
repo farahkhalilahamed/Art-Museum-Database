@@ -40,7 +40,8 @@ if (isset($_POST['submit']))
 
     $stmt->close();
 }
-if (!empty($artwork)){
+if (!empty($artwork) && is_array($artworks){
+  if (trim($artworkTitle) == "") continue;
   $search = "%{$artwork}%";
   $stmt = $conn->prepare("SELECT ArtworkID, ArtistID
                           FROM artwork 
