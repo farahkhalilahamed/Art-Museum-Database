@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST")
       die("Prepare failed: " . $conn->error);
   }
 
-  $stmt->bind_param("sssss", $fname, $minit, $lname, $phone, $email);
+  $stmt->bind_param("sssis", $fname, $minit, $lname, $phone, $email);
 
   if ($stmt->execute()) {
     $employeeID = $stmt->insert_id;
