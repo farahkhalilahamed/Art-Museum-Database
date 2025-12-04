@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST")
 
     $exhibitionID = intval($_POST["ExhibitionID"]);
     $role = $_POST["Role"];
-    $sql2 = "UPDATE AdministratorStaff
+    $sql2 = "UPDATE Administrator
              SET EmployeeID = ?,
              ExhibitionID = ?,
              Role = ?
