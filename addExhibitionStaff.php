@@ -15,28 +15,46 @@ if ($conn->connect_error){
 
 if ($_SERVER["REQUEST_METHOD"]=="POST")
 {
-  $exhibitionID=$_POST["ExhibitionID"];
-  $employeeID=$_POST["EmployeeID"];
+  $fname = $_POST["fname"];
+  $minit = $_POST["minit"];
+  $lname = $_POST["lname"];
+  $email = $_POST["email"];
+  $phone = $_POST["phone"];
+  $sql = "INSERT INTO employee (EFName, EMInitial, ELName, Phone, Email)
+            VALUES (?, ?, ?, ?, ?)";
 
-  $sql = "INSERT INTO ExhibitionStaff (EmployeeID, ExhibitionID)
-          VALUES (?,?)";
   $stmt = $conn->prepare($sql);
 
-    if (!$stmt) {
-        die("Prepare failed: " . $conn->error);
-    }
-  $stmt->bind_param("ii", $employeeID, $exhibitionID);
+  if (!$stmt) {
+      die("Prepare failed: " . $conn->error);
+  }
+
+  $stmt->bind_param("sssss", $fname, $minit, $lname, $phone, $email);
+
   if ($stmt->execute()) {
+    $employeeID = $stmt->insert_id;
+    $stmt->close();
+
+    $exhibitionID = intval($_POST["ExhibitionID"]);
+    $sql2 = "INSERT INTO ExhibitionStaff (EmployeeID, ExhibitionID)
+            VALUES (?,?)";
+    $stmt2 = $conn->prepare($sql2);
+    if (!$stmt2) {
+      die("Prepare failed: " . $conn->error);
+    }
+    $stmt2->bind_param("ii", $employeeID, $exhibitionID);
+      if ($stmt2->execute()) {
         echo "<h2>Exhibition Staff added successfully!</h2>";
         echo "<p><a href='addExhibitionStaff.html'>Add Another</a></p>";
         echo "<p><a href='home.html'>Go Home</a></p>";
     } else {
-        echo "Error: " . $stmt->error;
+        echo "Error adding exhibition staff: " . $stmt2->error;
     }
 
-    $stmt->close();
-}
-
+    $stmt2->close();
+    }else {
+        echo "Error adding employee: " . $stmt->error;
+    }
 $conn->close();
 ?>
 
