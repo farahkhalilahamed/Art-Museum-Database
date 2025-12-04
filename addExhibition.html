@@ -27,7 +27,15 @@
 
         <label>Title:</label><br>
         <input type="search" name="artwork" id="artwork"><br><br>
-        
+        <button type="button" onclick="addField()">Add Another Artwork</button>
+
+	<script>
+	function addField() {
+  		document.getElementById("artworks").innerHTML += 
+       			'<input type="search" name="artwork[]"><br>';
+	}
+	</script>
+
         <button type="submit" name="submit" >Submit</button>
     </form>
 
