@@ -33,7 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if ($stmt->execute()) {
     $employeeID = $stmt->insert_id;
     $stmt->close();
-
+}
+    
     $exhibitionID = intval($_POST["ExhibitionID"]);
     $role = $_POST["Role"];
     $sql2 = "INSERT INTO Administrator (EmployeeID, ExhibitionID, Role)
