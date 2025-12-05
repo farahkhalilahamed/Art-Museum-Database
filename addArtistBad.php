@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST")
         echo "<p><a href='addArtist.html'>Add Another</a></p>";
         echo "<p><a href='home.html'>Go Home</a></p>";
     } else {
-        echo "Error";
+        echo "Error" echo $conn->error;
     }
 
 }
