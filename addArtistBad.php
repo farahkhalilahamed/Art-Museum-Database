@@ -26,21 +26,16 @@ if ($_SERVER["REQUEST_METHOD"]=="POST")
 
   $sql = "INSERT INTO artist (AFName, AMInitial, ALName, DOB, Country, Bio)
           VALUES ('$fname', '$minit', '$lname', '$formattedDOB', '$country', '$bio')";
-  $stmt = $conn->prepare($sql);
 
-    if (!$stmt) {
-        die("Prepare failed: " . $conn->error);
-    }
   #$stmt->bind_param("ssssss", $fname, $minit, $lname, $formattedDOB, $country, $bio);
-  if ($stmt->execute()) {
+  if ($conn->query($sql)) {
         echo "<h2>Artist added successfully!</h2>";
         echo "<p><a href='addArtist.html'>Add Another</a></p>";
         echo "<p><a href='home.html'>Go Home</a></p>";
     } else {
-        echo "Error: " . $stmt->error;
+        echo "Error";
     }
 
-    $stmt->close();
 }
 
 $conn->close();
