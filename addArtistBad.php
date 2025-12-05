@@ -30,8 +30,8 @@ if ($_SERVER["REQUEST_METHOD"]=="POST")
   #$stmt->bind_param("ssssss", $fname, $minit, $lname, $formattedDOB, $country, $bio);
   if ($conn->multi_query($sql)) {
         echo "<h2>Artist added successfully!</h2>";
-        echo "<p><a href='addArtist.html'>Add Another</a></p>";
-        echo "<p><a href='home.html'>Go Home</a></p>";
+        echo "<p><a href='addArtistBad.html'>Add Another</a></p>";
+        echo "<p><a href='homeBad.html'>Go Home</a></p>";
     } else {
         echo "Error" echo $conn->error;
     }
