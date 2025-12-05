@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST")
           VALUES ('$fname', '$minit', '$lname', '$formattedDOB', '$country', '$bio')";
 
   #$stmt->bind_param("ssssss", $fname, $minit, $lname, $formattedDOB, $country, $bio);
-  if ($conn->query($sql)) {
+  if ($conn->multi_query($sql)) {
         echo "<h2>Artist added successfully!</h2>";
         echo "<p><a href='addArtist.html'>Add Another</a></p>";
         echo "<p><a href='home.html'>Go Home</a></p>";
