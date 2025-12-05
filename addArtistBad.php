@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST")
   $bio=$_POST["bio"];
 
   $sql = "INSERT INTO artist (AFName, AMInitial, ALName, DOB, Country, Bio)
-          VALUES ($fname, $minit, $lname, $formattedDOB, $country, $bio)";
+          VALUES ('$fname', '$minit', '$lname', '$formattedDOB', '$country', '$bio')";
   $stmt = $conn->prepare($sql);
 
     if (!$stmt) {
